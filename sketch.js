@@ -15,7 +15,7 @@ function preload() {
 
 function setup() {
 	// createCanvas(10, 10);
-	song = loadSound("p5.opus", loaded);
+	song = loadSound("p5.mp3", loaded);
 	amp = new p5.Amplitude();
 	fft = new p5.FFT();
 	// sliderVolume = createSlider(0, 1, 0.5, 0.01);
