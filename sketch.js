@@ -45,15 +45,18 @@ function draw() {
 	var waveform = fft.waveform();
 	noFill();
 
-	beginShape();
-	stroke(12,132,68); // waveform is red
-	strokeWeight(2);
-	for (var i = 0; i< waveform.length; i++){
-	  var x = map(i, 0, waveform.length, 0, width);
-	  var y = map( waveform[i], -1, 1, 0, height);
-	  vertex(x,y);
+	if(song.isPlaying()){
+		beginShape();
+		stroke(12,132,68); // waveform is red
+		strokeWeight(2);
+		for (var i = 0; i< waveform.length; i++){
+		  var x = map(i, 0, waveform.length, 0, width);
+		  var y = map( waveform[i], -1, 1, 0, height);
+		  vertex(x,y);
+		}
+		endShape();
+		image(img, (width/2)-(r/2), (height/2)-(r/2), (r*700)+constR, (r*700) + constR);
 	}
-	endShape();
 
 	// console.log(spectrum);
 	// fill(0,255,0); // spectrum is green
@@ -66,7 +69,7 @@ function draw() {
 	// var h = random(0, 500);
 	r = amp.getLevel();
 	// console.log(mic.getLevel());
-	image(img, (width/2)-(r/2), (height/2)-(r/2), (r*700)+constR, (r*700) + constR);
+	
 }
 
 
